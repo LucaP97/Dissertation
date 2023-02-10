@@ -24,6 +24,7 @@ urlpatterns = [
     path("members/", include("members.urls", namespace='members')),
     path("members/", include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+# +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
