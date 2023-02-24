@@ -1,6 +1,7 @@
-{% extends "tss/layout.html" %}
+{% extends "tss/base.html" %}
 
 {% block content %}
+{% include 'tss/navbar.html' %}
 
 <html>
 <head>
@@ -10,6 +11,15 @@
 
     <div name="team">
         <p>hi</p>
+
+
+        {% for d in data %}
+
+        {{ d }}
+
+        {% endfor %}
+
+        {{ data }}
 
     </div>
 
@@ -21,4 +31,4 @@
 </html>
 
 
-{% end content %}
+{% endblock %}

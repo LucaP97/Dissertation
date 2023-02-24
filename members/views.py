@@ -4,6 +4,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.urls import reverse
 from django.conf import settings
+# import requests
+import http.client
+import config
+
 
 def login_user(request):
     if request.method == 'POST':
@@ -35,5 +39,27 @@ def register_user(request):
         'form': form
     })
 
+
+# this gets individual team stats
 def select_team(request):
-    pass
+
+    rapid_api = config.rapid_api_key
+
+    conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
+
+    headers = {
+    'X-RapidAPI-Key': rapid_api,
+    'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
+    }
+
+    conn.request("GET", "/v3/teams?id=33", headers=headers)
+
+    res = conn.getresponse()
+
+    if res.status == 200:
+        print('working')
+        data = res.read()
+        return render(request, 'registration/select_team.html', {'data': data.decode})
+    else:
+        print('error')
+        return render(request, 'registration/select_team.html', {'error': res.status})

@@ -1,6 +1,7 @@
-{% extends "tss/layout.html" %}
+{% extends "tss/base.html" %}
 
 {% block content %}
+{% include 'tss/navbar.html' %}
 
 <head>
     <meta charset="utf-8"/>
@@ -71,6 +72,8 @@
       <!-- Right -->
     </div>
   </section>
+
+  <a href="{% url 'members:select_team' %}">Select team</a>
 
 {% comment %} <form action="" method=POST>
     {% csrf_token %}

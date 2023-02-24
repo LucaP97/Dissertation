@@ -1,6 +1,7 @@
-{% extends "tss/layout.html" %}
+{% extends "tss/base.html" %}
 
 {% block content %}
+{% include 'tss/navbar.html' %}
 
 <head>
     <meta charset="utf-8"/>
@@ -81,6 +82,11 @@
       <!-- Right -->
     </div>
   </section>
+
+  <img src="https:\/\/media-3.api-sports.io\/football\/teams\/33.png">
+  <img src="https:\/\/media.api-sports.io\/football\/venues\/556.png">
+  
+            {% comment %} /*class="img-fluid" alt="Sample image"> {% endcomment %}
 
 {% comment %} <form action="" method=POST>
     {% csrf_token %}
